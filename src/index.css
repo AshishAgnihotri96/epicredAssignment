@@ -1,0 +1,501 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap");
+
+body {
+  margin: 0;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: "Montserrat", sans-serif;
+}
+
+code {
+  font-family: Montserrat, "sans-serif";
+}
+
+.navbar,
+.phone-call {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  background-color: white;
+  padding: 10px 20px;
+  gap: 40px;
+}
+.phone-call-icon {
+  height: 32px;
+  width: 32px;
+}
+.phone-call {
+  gap: 10px;
+}
+.login-btn {
+  background-color: white;
+  border: 0.5px solid black;
+  border-radius: 5px;
+
+  border-color: #343a40;
+  padding: 10px 25px 10px 25px;
+  font-size: 1rem;
+  color: #343a40;
+
+  transition: background-color 0.3s ease;
+}
+.login-btn:hover {
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+.signup-btn {
+  background-color: #e34731;
+  color: white;
+  border: none;
+  padding: 10px 25px 10px 25px;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.navbar:hover p {
+  cursor: pointer;
+}
+.navbar p {
+  font-weight: 500;
+  font-family: sans-serif;
+}
+.login-signup {
+  display: flex;
+  flex-direction: row;
+
+  justify-content: center;
+  align-items: center;
+
+  gap: 10px;
+}
+.navbar-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 45px;
+  transition: height 0.3s ease;
+}
+.menu-icon {
+  cursor: pointer;
+  display: none;
+}
+.login-phone-div {
+  display: flex;
+  flex-direction: row;
+}
+@media (max-width: 992px) {
+  .navbar-container {
+    display: none;
+  }
+  .menu-icon {
+    display: block; /* Show the menu icon on smaller screens */
+  }
+  .navbar {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+  }
+
+  .navbar-container.show-menu {
+    display: block;
+
+    align-items: flex-start;
+    width: 80%;
+  }
+  .showMenu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    width: 80%;
+    align-items: center;
+  }
+}
+
+.element {
+  background-image: url("./assets/background2.jpeg");
+  background-size: cover;
+  width: auto;
+  height: 650px;
+  display: flex;
+  align-items: center;
+  background-position: center;
+}
+.heading,
+.sub-heading {
+  color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.element-container {
+  margin-left: 6%;
+}
+.sub-heading {
+  font-size: 18px;
+  width: 70%;
+}
+.heading {
+  font-size: 28px;
+  width: 48%;
+}
+.get-started {
+  background-color: #e34731;
+  color: white;
+  display: inline-block; /* or display: inline; */
+  width: auto;
+  padding: 10px 15px 10px 15px;
+  border-radius: 5px;
+}
+
+/* futureEarning */
+.estimate-earnings {
+  max-width: 1130px;
+  margin: 50px auto;
+  padding: 50px 80px;
+
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.estimate-earnings h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.input-fields {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.slider {
+  margin-bottom: 10px;
+}
+
+.slider label {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.slider input[type="range"] {
+  width: 100%;
+}
+
+.slider span {
+  display: inline-block;
+  font-size: 14px;
+}
+
+.dropdown label {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.dropdown select {
+  width: 100%;
+  padding: 8px;
+  font-size: 14px;
+}
+
+.charts {
+  display: flex;
+  justify-content: space-between;
+}
+
+.xy-chart,
+.bar-chart {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.xy-chart h3,
+.bar-chart h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.estimate-heading {
+  font-size: 24px;
+  font-weight: 500;
+  color: #333333;
+}
+.main-container-inputs {
+  width: 30%;
+}
+.earning-sub-head {
+  font-size: 20px;
+}
+.slider-values,
+.loan-amount {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.loan-percent {
+  background-color: #db7466;
+  padding: 10px;
+
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 10px;
+}
+.slider-values span {
+  color: lightslategray;
+}
+
+.dropdown-container {
+  position: relative;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  padding: 0px 10px 0px 10px;
+}
+
+.dropdown-label {
+  position: absolute;
+  top: -10px;
+  left: 10px;
+  background-color: white;
+  padding: 0 5px;
+}
+
+.dropdown-box {
+  padding-top: 10px;
+  cursor: pointer;
+  padding-bottom: 5px;
+  height: 30px;
+  
+   
+}
+
+.selected-option {
+  display: flex;
+  align-items: center;
+
+  justify-content: space-between;
+}
+
+.delete-button {
+  cursor: pointer;
+  border: none;
+  background-color: white;
+}
+
+.options-list {
+  z-index: 1000; /* Set a high z-index value */
+  position: absolute;
+  top: calc(100% + 5px); /* Position the option list below the input box */
+  left: 0;
+  width: 100%;
+  background-color: white;
+  border: 1px solid #ccc;
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+.option {
+  padding: 5px;
+}
+
+.option:hover {
+  background-color: #f0f0f0;
+}
+
+.target-country-input-container {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.target-country-input-label {
+  position: absolute;
+  top: -10px;
+  left: 10px;
+  background-color: white;
+  padding: 0 5px;
+}
+
+.target-country-input-box {
+  display: flex;
+  flex-wrap: wrap;
+  border: 1px solid #ccc;
+  padding: 5px;
+  cursor: pointer;
+  
+   
+}
+
+.selected-value {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+ 
+  width: fit-content; 
+  border: 1px solid #ccc;
+  margin: 5px;
+  padding: 5px;
+}
+
+.delete-button {
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+.options-list-target-coutry {
+  border: 1px solid #ccc;
+  border-top: none;
+  max-height: 150px;
+  overflow-y: auto;
+ 
+  width: 100%;
+}
+
+.option {
+  padding: 5px;
+}
+
+.option:hover {
+  background-color: #f0f0f0;
+}
+
+.placeholder-text {
+  color: #999;
+  padding: 5px;
+}
+.college-ranking-input-container {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.college-ranking-input-label {
+  position: absolute;
+  top: -10px;
+  left: 10px;
+  background-color: white;
+  padding: 0 5px;
+}
+
+.college-ranking-input-box {
+  display: flex;
+  flex-wrap: wrap;
+  border: 1px solid #ccc;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.selected-value {
+  display: flex;
+  align-items: center;
+  margin-right: 10px; /* Add margin to separate selected values */
+  margin-bottom: 5px; /* Add margin to create a row */
+}
+
+.delete-button {
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+.options-list {
+  z-index: 1000; /* Set a high z-index value */
+  position: absolute;
+  top: calc(100% + 5px); /* Position the option list below the input box */
+  left: 0;
+  width: 100%;
+  background-color: white;
+  border: 1px solid #ccc;
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+.option {
+  padding: 5px;
+}
+
+.option:hover {
+  background-color: #f0f0f0;
+}
+
+.placeholder-text {
+  color: #999;
+  padding: 5px;
+}
+.select-currency-input-container {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.select-currency-input-label {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 10px;
+  background-color: #fff;
+  padding: 0 5px;
+  font-size: 14px;
+}
+
+.select-currency-input-box {
+  position: relative;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+  padding-top: 20px; /* Add padding top to accommodate the label */
+}
+
+.selected-value {
+  display: flex;
+  align-items: center;
+}
+
+.delete-button {
+  margin-left: 5px;
+  border: none;
+  background-color: transparent;
+  color: red;
+  cursor: pointer;
+}
+
+.placeholder-text {
+  color: #999;
+}
+
+.options-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-top: none;
+  border-radius: 0 0 5px 5px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.option {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.option:hover {
+  background-color: #f0f0f0;
+}
+
+.graph-container{
+  
+  width: 50%;
+  max-height: 300px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
