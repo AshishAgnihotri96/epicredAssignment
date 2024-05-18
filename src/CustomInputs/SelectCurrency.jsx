@@ -24,7 +24,7 @@ export default function SelectCurrency({ selectedCurrency, setSelectedCurrency, 
                     {selectedCurrency}
                     {selectedCurrency && (
                         <button
-                            className="delete-button"
+                            className="delete-button-target"
                             onClick={handleClearSelection}
                         >
                             x

@@ -176,7 +176,7 @@ code {
   margin-top: 40px;
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 15px;
 }
 
 .slider {
@@ -235,7 +235,7 @@ code {
   width: 30%;
 }
 .earning-sub-head {
-  font-size: 20px;
+  font-size: 14px;
 }
 .slider-values,
 .loan-amount {
@@ -244,7 +244,7 @@ code {
   justify-content: space-between;
 }
 .loan-percent {
-  background-color: #db7466;
+  background-color: #F98777;
   padding: 10px;
 
   border-radius: 5px;
@@ -288,11 +288,6 @@ code {
   justify-content: space-between;
 }
 
-.delete-button {
-  cursor: pointer;
-  border: none;
-  background-color: white;
-}
 
 .options-list {
   z-index: 1000; /* Set a high z-index value */
@@ -343,15 +338,16 @@ code {
   flex-direction: row;
  
   width: fit-content; 
-  border: 1px solid #ccc;
+
   margin: 5px;
   padding: 5px;
+  border-radius: 8px;
+  background-color: #E34731;
+  justify-content: center;
+  color: white;
+  
 }
 
-.delete-button {
-  margin-left: 5px;
-  cursor: pointer;
-}
 
 .options-list-target-coutry {
   border: 1px solid #ccc;
@@ -395,17 +391,7 @@ code {
   cursor: pointer;
 }
 
-.selected-value {
-  display: flex;
-  align-items: center;
-  margin-right: 10px; /* Add margin to separate selected values */
-  margin-bottom: 5px; /* Add margin to create a row */
-}
 
-.delete-button {
-  margin-left: 5px;
-  cursor: pointer;
-}
 
 .options-list {
   z-index: 1000; /* Set a high z-index value */
@@ -455,16 +441,12 @@ code {
   padding-top: 20px; /* Add padding top to accommodate the label */
 }
 
-.selected-value {
-  display: flex;
-  align-items: center;
-}
 
 .delete-button {
   margin-left: 5px;
   border: none;
   background-color: transparent;
-  color: red;
+  color: white;
   cursor: pointer;
 }
 
@@ -496,13 +478,22 @@ code {
 .graph-container{
   
   width: 50%;
-  max-height: 300px;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-}
 
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+gap: 40px; 
+ 
+}
+.delete-button-target{
+  color: gray;
+  border: none;
+  background-color: white;
+}
 @media only screen and (max-width: 768px) {
   .estimate-earnings{
-    border: 1px solid blue;
+   
     display: flex;
     flex-direction: column;
     box-sizing: content-box;
@@ -512,5 +503,9 @@ code {
     max-height: 300px;
     width: 100%;
   }
+  .main-container-inputs{
+    width: 100%;
+  }
 }
+
 

@@ -1,17 +1,13 @@
-import logo from './logo.svg';
-import './App.css';
-import Navbar from './Header/Navbar';
-import Homepage from './Components/Homepage';
-import EstimateEarnings from './Components/EstimateEarnings';
-import Test from './Components/Test';
+import "./App.css";
+import Navbar from "./Header/Navbar";
+
+import EstimateEarnings from "./Components/EstimateEarnings";
 
 function App() {
   return (
     <div>
-      <Navbar/>
-      <Homepage/>
-      <EstimateEarnings/> 
-       
+      <Navbar />
+      <EstimateEarnings />
     </div>
   );
 }

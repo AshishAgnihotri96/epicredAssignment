@@ -3,10 +3,11 @@ import TargetBranch from "../CustomInputs/TargetBranch";
 import TargetCountry from "../CustomInputs/TargetCountry";
 import CollegeRanking from "../CustomInputs/CollegeRanking";
 import SelectCurrency from "../CustomInputs/SelectCurrency";
-import Graph from "./Graph";
-import { calculateSavings } from "./Calculation";
-import Test from "./Test";
 
+import { calculateEstimatedSavings, calculateSavings } from "./Calculation";
+
+import SalaryIncrementChart from "./ReChartsComp";
+import SavingsOverYearsChart from "./SavingsOverYears";
 
 function EstimateEarnings() {
   const [loanPercentage, setLoanPercentage] = useState(50);
@@ -25,35 +26,77 @@ function EstimateEarnings() {
   ];
 
   const [selectedTargetCountries, setSelectedTargetCountries] = useState([]);
-  const [showTargetCountryOptions, setShowTargetCountryOptions] = useState(false);
-  const targetCountryOptions =['All', 'Australia', 'Canada', "Germany", "United States"]
-  
-  const [selectedCollegeRankings, setSelectedCollegeRankings] = useState([]);
-  const [showCollegeRankingOptions, setShowCollegeRankingOptions] = useState(false);
-  const collegeRankingOptions=["1-50", "51-100","101-250","251-500", "500+"]
+  const [showTargetCountryOptions, setShowTargetCountryOptions] =
+    useState(false);
+  const targetCountryOptions = [
+    "Australia",
+    "Canada",
+    "Germany",
+    "United States",
+  ];
 
-  const [selectedCurrency, setSelectedCurrency] = useState('');
+  const [selectedCollegeRankings, setSelectedCollegeRankings] = useState([]);
+  const [showCollegeRankingOptions, setShowCollegeRankingOptions] =
+    useState(false);
+  const collegeRankingOptions = [
+    "1-50",
+    "51-100",
+    "101-250",
+    "251-500",
+    "500+",
+  ];
+
+  const [selectedCurrency, setSelectedCurrency] = useState("");
   const [showCurrencyOptions, setShowCurrencyOptions] = useState(false);
-  const currencyOptions=["AUD (Australia)", "CAD (Canada)", "INR (India)", "EUR (Germany)", "USD (United States)"]
+  const currencyOptions = [
+    "AUD (Australia)",
+    "CAD (Canada)",
+    "INR (India)",
+    "EUR (Germany)",
+    "USD (United States)",
+  ];
   const calculateData = () => {
     if (selectedTargetCountries.length === 0) {
-        return null; 
+      return null;
     }
     const userInputs = {
-        loanAmountPercentage: parseFloat(loanPercentage),
-        annualSalary: parseFloat(annualSalary),
-        targetBranch: selectedOption,
-        targetCountry: selectedTargetCountries, // Assuming only one country is selected
-        currency: selectedCurrency,
+      loanAmountPercentage: parseFloat(loanPercentage),
+      annualSalary: parseFloat(annualSalary),
+      targetBranch: selectedOption,
+      targetCountry: selectedTargetCountries,
+      currency: selectedCurrency,
+      selectedCollegeRankings: selectedCollegeRankings,
     };
-  
+
     return calculateSavings(userInputs);
   };
+  const calculateSavingsData = () => {
+    if (selectedTargetCountries.length === 0) {
+      return null;
+    }
+    const userInputs = {
+      loanAmountPercentage: parseFloat(loanPercentage),
+      annualSalary: parseFloat(annualSalary),
+      targetBranch: selectedOption,
+      targetCountry: selectedTargetCountries,
+      currency: selectedCurrency,
+      selectedCollegeRankings: selectedCollegeRankings,
+    };
+
+    return calculateEstimatedSavings(userInputs);
+  };
   useEffect(() => {
-  calculateData();
-   
-  }, [loanPercentage, annualSalary, selectedOption, selectedTargetCountries, selectedCurrency]);
-   
+    calculateData();
+    calculateSavingsData();
+  }, [
+    loanPercentage,
+    annualSalary,
+    selectedOption,
+    selectedTargetCountries,
+    selectedCurrency,
+    selectedCollegeRankings,
+  ]);
+
   return (
     <div className="estimate-earnings">
       <div className="main-container-inputs">
@@ -115,33 +158,32 @@ function EstimateEarnings() {
             label="Target Branch"
           />
           <TargetCountry
-           selectedTargetCountries={selectedTargetCountries}
-           setSelectedTargetCountries={setSelectedTargetCountries}
-           showTargetCountryOptions={showTargetCountryOptions}
-           setShowTargetCountryOptions={setShowTargetCountryOptions}
-           targetCountryOptions={targetCountryOptions}
+            selectedTargetCountries={selectedTargetCountries}
+            setSelectedTargetCountries={setSelectedTargetCountries}
+            showTargetCountryOptions={showTargetCountryOptions}
+            setShowTargetCountryOptions={setShowTargetCountryOptions}
+            targetCountryOptions={targetCountryOptions}
           />
           <CollegeRanking
-           selectedCollegeRankings={selectedCollegeRankings}
-           setSelectedCollegeRankings={setSelectedCollegeRankings}
-           showCollegeRankingOptions={showCollegeRankingOptions}
-           setShowCollegeRankingOptions={setShowCollegeRankingOptions}
-           collegeRankingOptions={collegeRankingOptions}
+            selectedCollegeRankings={selectedCollegeRankings}
+            setSelectedCollegeRankings={setSelectedCollegeRankings}
+            showCollegeRankingOptions={showCollegeRankingOptions}
+            setShowCollegeRankingOptions={setShowCollegeRankingOptions}
+            collegeRankingOptions={collegeRankingOptions}
           />
           <SelectCurrency
-          selectedCurrency={selectedCurrency}
-          setSelectedCurrency={setSelectedCurrency}
-          showCurrencyOptions={showCurrencyOptions}
-          setShowCurrencyOptions={setShowCurrencyOptions}
-          currencyOptions={currencyOptions}
-          label="Select Currency"
+            selectedCurrency={selectedCurrency}
+            setSelectedCurrency={setSelectedCurrency}
+            showCurrencyOptions={showCurrencyOptions}
+            setShowCurrencyOptions={setShowCurrencyOptions}
+            currencyOptions={currencyOptions}
+            label="Select Currency"
           />
-         
-          
         </div>
       </div>
       <div className="graph-container">
-      <Test data={calculateData()}/>
+        <SavingsOverYearsChart data={calculateSavingsData()} />
+        <SalaryIncrementChart data={calculateData()} />
       </div>
     </div>
   );

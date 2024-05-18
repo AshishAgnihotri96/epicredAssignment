@@ -23,7 +23,7 @@ export default function TargetBranch({selectedOption,setSelectedOption,showOptio
               {selectedOption}
               {selectedOption && (
                 <button
-                  className="delete-button"
+                  className="delete-button-target"
                   onClick={handleClearSelection}
                 >
                   x
